@@ -3,7 +3,7 @@
  * Target: index.html
  * Purpose: Design for onclick 
  * Created: 6/10/2022
- * Last updated: 00/00/2022
+ * Last updated: 6/10/2022
  */
 
 "use strict";
