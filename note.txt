@@ -1,0 +1,28 @@
+1) index.html => login and register page
+
+For teacher
+2) dashboard.html
+	student info
+		firstname
+		lastname
+		grade
+		level
+3) createquiz.html ?
+	for setting up more level
+
+For student
+4) userprofile.html
+	name
+	score
+	level
+	picture profile ?
+
+5) gameplay.html
+	level 1
+	level 2
+	level 3
+
+For admin
+6) admin.html
+	set up role for each user
+	
