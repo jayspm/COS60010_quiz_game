@@ -102,3 +102,178 @@ footer {
 #register {
     left: 450px;
 }
+
+/*Userprofile*/
+
+#profimg{
+    height: 200px;
+    border-radius: 0.5rem;
+}
+#file{
+    display:none;
+}
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(to right bottom,#ff105f,#ffad06);
+    color: white;
+    padding: 5px;
+    border-radius: 30px;
+}
+h1{
+    color: black;
+    font-weight: 600;
+    font-size: 3rem;
+    opacity: 0.8;
+    text-align: center;
+}
+.grid{
+    
+    width:70%;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat (2,1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 2rem;
+}
+
+.grid label{
+    font-size: 20px;
+    color: black;
+}
+.grid span{
+    width:60%;
+    color: rgb(39, 38, 38);
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    padding:3px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 0.3rem;
+   
+}
+
+
+main {
+    font-family: "Poppins", sans-serif;
+    padding:20px;
+    margin:0;
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url(../images/bg_index_3.png);
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+    
+}
+
+
+
+.profileBox1 {
+    text-align: center;
+    grid-column: 1;
+    grid-row: 1;
+    background: linear-gradient(to right bottom,#ff105f,#ffad06);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px 0 #0000003d;
+}
+.profileBox2 {
+    text-align: center;
+    grid-column: 2;
+    grid-row: 1;
+    background: linear-gradient(to right bottom,#ff105f,#ffad06);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px 0 #0000003d;
+}
+.profileBox3 {
+    text-align: center;
+    grid-column: 1;
+    grid-row: 2;
+    background: linear-gradient(to right bottom,#ff105f,#ffad06);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px 0 #0000003d;
+}
+.profileBox4 {
+    text-align: center; 
+    grid-column: 2;
+    grid-row: 2;
+    background: linear-gradient(to right bottom,#ff105f,#ffad06);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px 0 #0000003d;
+    font-size: 200%;
+}
+
+.profileBox4 a{
+    color:white;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+
+#photo{
+    height: 150px;
+    width: 150px;
+    border-radius: 3rem;
+    border: none;
+    box-shadow: 0 0 30px 0 #0000003d;
+    margin:auto;
+}
+
+.submitgrid {
+    width:70%;
+    margin: auto;
+    margin-top: 10px;
+    display:grid;
+    grid-template-columns: repeat (2,1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 2rem;
+}
+
+.choosephoto{
+    grid-column: 1;
+    grid-row: 1;
+    margin: auto;
+}
+.choosephoto label{
+    background: linear-gradient(to right bottom,#ff105f,#ffad06);
+    padding: 10px;
+    margin: 13.5px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px 0 #0000003d;
+    color: white;
+}
+
+.nextbtn{
+    margin: auto;
+    grid-column: 2;
+    grid-row: 1;
+}
+.nextbtn button{
+    display: block;
+  width: 100%;
+  border: none;
+  border-radius: 3rem;
+  background: linear-gradient(to right bottom,#ff105f,#ffad06);
+  padding: 14px 28px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 0 20px 9px #ff61241f;
+}
+
+/*End User Profile*/
