@@ -24,9 +24,16 @@
                 <button type="submit" class="submit-btn">Log in</button>
             </form>
             <form id="register" class="input-group">
-                <input type="text" class="input-field" placeholder="User Id" required />
-                <input type="text" class="input-field" placeholder="Role" required />
+                <input type="text" class="input-field" placeholder="User Id" required /> 
+                <!--<input type="text" class="input-field" placeholder="Role" required /> to check box-->
                 <input type="text" class="input-field" placeholder="Enter Password" required />
+
+                <p><br /></p>
+                <input type="radio" name="role" id="student" value="stuent" checked>
+                <label for="student" class="testText">Student</label>
+                
+                <input type="radio" name="role" id="teacher" value="teacher">
+                <label for="teacher" class="testText">Teacher</label>
                 <p><br /></p>
                 <button type="submit" class="submit-btn">Register</button>
             </form>
