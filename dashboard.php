@@ -17,6 +17,7 @@
         </div>
         <!--this is the test-->
         <ul>
+            <li><img src="images/icon_students.png" />&nbsp; Students</li>
             <li><img src="images/icon_students.png" />&nbsp; Student Grade 1</li>
             <li><img src="images/icon_students.png" />&nbsp; Student Grade 2</li>
             <li><img src="images/icon_students.png" />&nbsp; Student Grade 3</li>
@@ -48,25 +49,55 @@
                     <div class="title">
                         <h2>Student details</h2>
                     </div>
+                    
+                    <?php
+                        require_once("database/settings.php");
+
+                        $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+                        if (!$conn) {
+                            echo "Connection failure!!!";
+                        } else {
+                            $tablename = "students";
+                            $query_select = "SELECT * FROM $tablename;";
+                            $result = mysqli_query($conn, $query_select);
+
+                            echo "<table>";
+                            echo "<tr>
+                                    <th>Student ID</th>
+                                    <thName</th>
+                                    <th>Level</th>
+                                    <th>Scores</th>
+                                </tr>";
+                            
+                            while ($row = mysqli_fetch_assoc($result)){
+                                echo "<tr>";
+                                echo "<td>",$row["student_id"],"</td>";
+                                echo "<td>",$row["student_name"],"</td>";  
+                                echo "<td>",$row["student_level"],"</td>";
+                                echo "<td>",$row["student_scores"],"</td>";
+                                echo "</tr>";
+                            }
+                            echo "</table>";
+                        }
+
+                    ?>
+                    
                     <table>
                         <tr>
                             <th>Student Id</th>
                             <th>Name</th>
-                            <th>Last name</th>
                             <th>Level</th>
                             <th>Scores</th>
                         </tr>
                         <tr>
                             <td>120</td>
-                            <td>John</td>
-                            <td>Smith</td>
+                            <td>John Smith</td>
                             <td>3</td>
                             <td>28/30</td>
                         </tr>
                         <tr>
                             <td>131</td>
-                            <td>Anna</td>
-                            <td>Jones</td>
+                            <td>Anna Jones</td>
                             <td>2</td>
                             <td>15/20</td>
                         </tr>
@@ -75,12 +106,12 @@
             </div>
         </div>
     </div>
-    
     <footer>
         <hr>
         <p id="footer-center">
             &copy; <a href="https://www.swinburne.edu.au/">Swinburne University of Technology</a>.&nbsp;&nbsp;&nbsp;&nbsp;By: G13 - 2022-HS2-COS60010-Technology Enquiry Project
         </p>
     </footer>
+
 </body>
 </html>
