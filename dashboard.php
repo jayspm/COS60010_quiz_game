@@ -26,7 +26,7 @@
             <li><a href="dashboard.php?grade=grade5"><img src="images/icon_students.png" />&nbsp; Grade 5</a></li>
             <li><a href="dashboard.php?grade=grade6"><img src="images/icon_students.png" />&nbsp; Grade 6</a></li>
             <li><a href="chart.php"><img src="images/icon_overall.png" />&nbsp; Overall</a></li>
-            <li><a href=""><img src="images/icon_create.png" />&nbsp; Add New Quiz</li>
+            <!--<li><a href=""><img src="images/icon_create.png" />&nbsp; Add New Quiz</li>-->
         </ul>
     </div>
     <div class="container">

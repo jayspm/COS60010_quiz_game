@@ -208,13 +208,24 @@ th, td {
     text-align: center;
 }
 
-.container .content .cards .card {
-    width: 600px;
-    height: 500px;
-    background: white;
-    margin: 20px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+    .container .content .cards .card {
+        width: 600px;
+        height: 500px;
+        background: white;
+        margin: 40px 250px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        /*background-color: red;
+        background: pink;
+        width: 600px;
+        height: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -250px 0 0 -300px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;*/
+    }
