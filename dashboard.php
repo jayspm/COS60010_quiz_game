@@ -91,11 +91,11 @@
                                     <th class='txt_center'>Name</th>
                                     <th class='txt_center'>Grade</th>
                                     <th class='txt_center'>Current Level</th>
-                                    <th class='txt_center'>Level 1 score</th>
-                                    <th class='txt_center'>Level 2 score</th>
-                                    <th class='txt_center'>Level 3 score</th>
-                                    <th class='txt_center'>Level 4 score</th>
-                                    <th class='txt_center'>Level 5 score</th>
+                                    <!--<th class='txt_center'>Level 1 score</th>-->
+                                    <!--<th class='txt_center'>Level 2 score</th>-->
+                                    <!--<th class='txt_center'>Level 3 score</th>-->
+                                    <!--<th class='txt_center'>Level 4 score</th>-->
+                                    <!--<th class='txt_center'>Level 5 score</th>-->
                                     <th class='txt_center'>Total Scores</th>
                                 </tr>";
                             
@@ -105,11 +105,11 @@
                                 echo "<td class='col_width'>",$row["name"],"</td>";  
                                 echo "<td class='txt_center'>",$row["grade"],"</td>";
                                 echo "<td class='txt_center'>",$row["current_level"],"</td>";
-                                echo "<td class='txt_center'>",$row["lv1_score"],"</td>";
-                                echo "<td class='txt_center'>",$row["lv2_score"],"</td>";
-                                echo "<td class='txt_center'>",$row["lv3_score"],"</td>";
-                                echo "<td class='txt_center'>",$row["lv4_score"],"</td>";
-                                echo "<td class='txt_center'>",$row["lv5_score"],"</td>";
+                                echo "<!--<td class='txt_center'>",$row["lv1_score"],"</td>-->";
+                                echo "<!--<td class='txt_center'>",$row["lv2_score"],"</td>-->";
+                                echo "<!--<td class='txt_center'>",$row["lv3_score"],"</td>-->";
+                                echo "<!--<td class='txt_center'>",$row["lv4_score"],"</td>-->";
+                                echo "<!--<td class='txt_center'>",$row["lv5_score"],"</td>-->";
                                 echo "<td class='txt_center'>",$row["total_score"],"</td>";
                                 echo "</tr>";
                             }
