@@ -53,7 +53,7 @@
                     </div>
                     
                     <?php
-                        require_once("database/settings.php");
+                        require_once("settings.php");
 
                         $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
                         if (!$conn) {
@@ -66,17 +66,17 @@
                                 $studentGrade = $_GET["grade"];
                                 
                                 switch ($studentGrade) {
-                                    case "grade1": $query_select = "SELECT * FROM $tablename WHERE student_grade = 1;";
+                                    case "grade1": $query_select = "SELECT * FROM $tablename WHERE grade = 1;";
                                         break;
-                                    case "grade2": $query_select = "SELECT * FROM $tablename WHERE student_grade = 2;";
+                                    case "grade2": $query_select = "SELECT * FROM $tablename WHERE grade = 2;";
                                         break;
-                                    case "grade3": $query_select = "SELECT * FROM $tablename WHERE student_grade = 3;";
+                                    case "grade3": $query_select = "SELECT * FROM $tablename WHERE grade = 3;";
                                         break;
-                                    case "grade4": $query_select = "SELECT * FROM $tablename WHERE student_grade = 4;";
+                                    case "grade4": $query_select = "SELECT * FROM $tablename WHERE grade = 4;";
                                         break;
-                                    case "grade5": $query_select = "SELECT * FROM $tablename WHERE student_grade = 5;";
+                                    case "grade5": $query_select = "SELECT * FROM $tablename WHERE grade = 5;";
                                         break;
-                                    case "grade6": $query_select = "SELECT * FROM $tablename WHERE student_grade = 6;";
+                                    case "grade6": $query_select = "SELECT * FROM $tablename WHERE grade = 6;";
                                         break;
                                     default: $query_select = "SELECT * FROM $tablename;";
                                 }
@@ -90,17 +90,27 @@
                                     <th class='txt_center'>Student ID</th>
                                     <th class='txt_center'>Name</th>
                                     <th class='txt_center'>Grade</th>
-                                    <th class='txt_center'>Level</th>
-                                    <th class='txt_center'>Scores</th>
+                                    <th class='txt_center'>Current Level</th>
+                                    <th class='txt_center'>Level 1 score</th>
+                                    <th class='txt_center'>Level 2 score</th>
+                                    <th class='txt_center'>Level 3 score</th>
+                                    <th class='txt_center'>Level 4 score</th>
+                                    <th class='txt_center'>Level 5 score</th>
+                                    <th class='txt_center'>Total Scores</th>
                                 </tr>";
                             
                             while ($row = mysqli_fetch_assoc($result)){
                                 echo "<tr>";
                                 echo "<td class='txt_center'>",$row["student_id"],"</td>";
-                                echo "<td class='col_width'>",$row["student_name"],"</td>";  
-                                echo "<td class='txt_center'>",$row["student_grade"],"</td>";
-                                echo "<td class='txt_center'>",$row["student_level"],"</td>";
-                                echo "<td class='txt_center'>",$row["student_scores"],"</td>";
+                                echo "<td class='col_width'>",$row["name"],"</td>";  
+                                echo "<td class='txt_center'>",$row["grade"],"</td>";
+                                echo "<td class='txt_center'>",$row["current_level"],"</td>";
+                                echo "<td class='txt_center'>",$row["lv1_score"],"</td>";
+                                echo "<td class='txt_center'>",$row["lv2_score"],"</td>";
+                                echo "<td class='txt_center'>",$row["lv3_score"],"</td>";
+                                echo "<td class='txt_center'>",$row["lv4_score"],"</td>";
+                                echo "<td class='txt_center'>",$row["lv5_score"],"</td>";
+                                echo "<td class='txt_center'>",$row["total_score"],"</td>";
                                 echo "</tr>";
                             }
                             echo "</table>";

@@ -27,7 +27,7 @@
                     //    ["Buttermilk", 1]
                     //]);
                 
-                    require_once("database/settings.php");
+                    require_once("settings.php");
 
                     $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
                     if (!$conn) {
