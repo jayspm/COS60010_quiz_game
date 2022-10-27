@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Level 1</title>  
+  <link rel="stylesheet" href="styles/gameplay.css">
+</head>
+<body>
+<div class="hero">
+<h1>Maths Game</h1>
+<div class="gameinfo">
+  <h2>Level One</h2>
+  <p>Drag the equation over the correct answer</p>
+</div> 
+<section class="score">
+  <div>Correct: <span class="correct">0</span></div>
+  <div>Wrong: <span class="wrong">0</span></div>
+  <div>Total: <span class="total">0</span></div>
+  <button id="play-again-btn">Play Again</button>
+</section>
+  <main class="container">
+    
+    <section class="draggable-items">
+      <!-- Will be dynamically populated - Example Element: -->
+      <!-- <i class="fab fa-codepen draggable" draggable="true" style="color: #111111;" id="codepen"></i> -->
+    </section>
+    <section class="matching-pairs">
+      <!-- Will be dynamically populated - Example Element: -->
+      <!-- <div class="matching-pair">
+        <span class="label">Codepen</span><span class="droppable" data-brand="codepen"></span>
+      </div> -->
+    </section>
+  <script src="game.js"></script>
+  </main>
+  <div class="behind">
+  <div id="endMessage">
+    <h3>Well done!</h3>
+    <table>
+      <tr>
+        <th>Question</th>
+        <th>Answer</th>
+      </tr>
+      <tr>
+        <td>Equation 1</td>
+        <td>Answer 1</td>
+      </tr>
+      <tr>
+        <td>Equation 2</td>
+        <td>Answer 2</td>
+      </tr>
+      <tr>
+        <td>Equation 3</td>
+        <td>Answer 3</td>
+      </tr>
+      <tr>
+        <td>Equation 4</td>
+        <td>Answer 4</td>
+      </tr>
+      <tr>
+        <td>Equation 5</td>
+        <td>Answer 5</td>
+      </tr>
+    </table>
+
+    <button onclick="playAgain()">Play Again</button>
+  </div>
+</div>
+
+  <script src="scripts/gameplay2.js"></script>
+</div>
+
+  
+</body>
+</html>
