@@ -17,19 +17,10 @@
         <script>
         
             anychart.onDocumentLoad(function () {
-            // create an instance of a pie chart
                 var chart = anychart.pie();
-                // set the data
 
                 <?php
-                    //chart.data([
-                    //    ["Chocolate", 5],
-                    //    ["Rhubarb compote", 2],
-                    ////    ["Crêpe Suzette", 2],
-                    //    ["American blueberry", 2],
-                    //    ["Buttermilk", 1]
-                    //]);
-                
+
                     require_once("settings.php");
 
                     $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
@@ -45,44 +36,48 @@
                             echo "['Grade " , $row["grade"],"', " , $row["Total_student"] , "],";
                             
                         }   
-                        echo "])";
+                        echo "]);";
 
                         mysqli_free_result($result);
+
+                        $query_line = "SELECT grade, ROUND(AVG(current_level) ,0) AS avglv FROM students GROUP BY grade;";
+                        $result_line = mysqli_query($conn, $query_line);
+
+                        echo "\nvar linedata = [";
+                        while ($row = mysqli_fetch_assoc($result_line)){
+                            echo "['Grade " , $row["grade"] ,"', " , $row["avglv"] , "],";
+                            
+                        }   
+                        echo "];";
+
+                        mysqli_free_result($result_line);
+
+                        $query_range = "SELECT grade, MIN(current_level) AS lvmin, MAX(current_level) AS lvmax FROM students GROUP BY grade;";
+                        $result_range = mysqli_query($conn, $query_range);
+
+                        echo "\nvar rangedata = [";
+                        while ($row = mysqli_fetch_assoc($result_range)){
+                            echo "['Grade " , $row["grade"] ,"', " , $row["lvmin"] , ", " , $row["lvmax"] , "],";
+                            
+                        }   
+                        echo "];";
+
+                        mysqli_free_result($result_range);
                     }
 
                     mysqli_close($conn);
                 ?>
-                
-                var linedata = [
-                  ["January", 10000],
-                  ["February", 12000],
-                  ["March", 18000],
-                  ["April", 11000],
-                  ["May", 9000]
-                ];
 
-                var linechart = anychart.line();
-                var lineseries = linechart.line(linedata);
-
-                //chart.title("Number of students for each grade");
                 chart.container("noofstudent");
                 chart.draw();
 
-                //linechart.title("Average current level for each grade");
+                var linechart = anychart.line();
+                var lineseries = linechart.line(linedata);
                 linechart.container("avelevel");
                 linechart.draw();
 
-                var rangedata = [
-                  ["January", 0.7, 6.1],
-                  ["February", 0.6, 6.3],
-                  ["March", 1.9, 8.5],
-                  ["April", 3.1, 10.8],
-                  ["May", 5.7, 14.4]
-                ];
-
                 rangechart = anychart.column();
                 var rangeseries = rangechart.rangeColumn(rangedata);
-
                 rangechart.container("highestandlowestlv");
                 rangechart.draw();
 
@@ -148,27 +143,11 @@
                         <h2>Highest and lowest level for eash grade</h2>
                     </div>
                     <div id="highestandlowestlv" style="width: 600px; height: 500px;"></div>
-                </div>
-
-                
-
-            </div>
-            </div>
-                <div class="cards">
-                    <div class="content">
-                        <div class="card">
-                            <!--<div id="container" style="width: 600px; height: 500px;">-->
-                        </div>
-                        <div class="card">
-                            <!--<div id="container" style="width: 600px; height: 500px;">-->
-                        </div>
-                        <div class="card">
-                            <!--<div id="container" style="width: 600px; height: 500px;">-->
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     <footer>
         <hr>
         <p id="footer-center">
