@@ -116,3 +116,10 @@ function addEventListeners() {
     item.addEventListener('dragleave', dragLeave);
   })
 }
+// function init() {
+//   // var scoreButton = document.getElementById("viewScore");// get ref to the HTML element
+//   document.getElementById("score").textContent = sessionStorage.attemptCount;
+  
+//   // scoreButton.onsubmit = showscore;
+// }
+// init();
