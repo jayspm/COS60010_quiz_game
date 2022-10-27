@@ -35,7 +35,7 @@
                     <button type="submit"><img src="images/icon_search.png" /></button>
                 </div>
                 <div class="user">
-                    <a href="#" class="btn">Log out</a>
+                    <a href="logout.php" class="btn">Log out</a>
                     <img src="images/icon_notification.png" />
                     <div class="img-case">
                         <img src="images/icon_user.png" />
