@@ -1,3 +1,14 @@
+{
+  level : 1
+  problems : [
+    {
+      eq : "11-3",
+      ans : "8"
+    }
+  ]
+
+}
+
 <?php
   session_start();
   if (!isset ($_SESSION["level"])) {
@@ -118,11 +129,19 @@
     </div>
     <div>
       <ul class="draggable-list">
-        <li id="s1" draggable="true"><?php echo $ans1 ?></li>
-        <li id="s2" draggable="true"><?php echo $ans2 ?></li>
+        <?php
+         $noralArray =  ['1', '2', '3', '4', '5'];
+         shuffle($noralArray);
+         foreach($noralArray as $val){
+          echo "<li id='s$val' draggable='true'>${'ans' . $val}</li>";
+         }
+
+        ?>
+        <!-- <li id="s2" draggable="true"><?php echo $ans2 ?></li>
         <li id="s3" draggable="true"><?php echo $ans3 ?></li>
         <li id="s4" draggable="true"><?php echo $ans4 ?></li>
         <li id="s5" draggable="true"><?php echo $ans5 ?></li>
+        <li id="s1" draggable="true"><?php echo $ans1 ?></li> -->
       </ul>
     </div>
   </main>
