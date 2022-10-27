@@ -13,7 +13,6 @@
     <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-core.min.js"></script>
     <title>Maths Practice Online</title>
 
-   
         <script>
         
             anychart.onDocumentLoad(function () {
@@ -122,7 +121,7 @@
         </div>
         <div class="content">
             <div class="content-2">
-                <div class="student-dashboard">
+                <div class="chart-dashboard">
                     <div class="title">
                         <h2>Number of students for each grade</h2>
                     </div>

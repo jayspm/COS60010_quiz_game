@@ -186,7 +186,6 @@ th, td {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
-
 }
 
 .txt_center {
@@ -217,15 +216,15 @@ th, td {
         align-items: center;
         justify-content: space-around;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        /*background-color: red;
-        background: pink;
-        width: 600px;
-        height: 500px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin: -250px 0 0 -300px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;*/
     }
+
+.container .content .content-2 .chart-dashboard {
+    min-height: 50px;
+    flex: 5;
+    background: white;
+    margin: 0 25px 25px 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
