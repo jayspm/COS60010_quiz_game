@@ -37,9 +37,9 @@
                 <div class="user">
                     <a href="logout.php" class="btn">Log out</a>
                     <img src="images/icon_notification.png" />
-                    <div class="img-case">
+                    <a href="userprofile.php" class="img-case">
                         <img src="images/icon_user.png" />
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
