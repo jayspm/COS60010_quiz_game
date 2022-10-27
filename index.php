@@ -19,7 +19,7 @@
             </div>
             <form id="login"  method="post" action="index.php" class="input-group">
                 <input type="text" class="input-field" name="userId" placeholder="User Id" required />
-                <input type="text" class="input-field" name="password" placeholder="Enter Password" required />
+                <input type="Password" class="input-field" name="password" placeholder="Enter Password" required />
                 <p><br /></p>
                 <button type="submit" name="Login" class="submit-btn">Log in</button>
             </form>
@@ -57,7 +57,7 @@
             <form id="register"  method="post" action="index.php" class="input-group">
                 <input type="text" class="input-field" name="userId" placeholder="User Id" required /> 
                 <!--<input type="text" class="input-field" placeholder="Role" required /> to check box-->
-                <input type="text" class="input-field" name="password" placeholder="Enter Password" required />
+                <input type="password" class="input-field" name="password" placeholder="Enter Password" required />
 
                 <p><br /></p>
                 <input type="radio" name="role" id="student" value="student" checked>
