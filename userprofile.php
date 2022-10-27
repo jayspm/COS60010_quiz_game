@@ -6,6 +6,7 @@
     <meta name="keywords" content="Math, Quiz, Game, Drag and Drop Game" />
     <meta name="author" content="G13 - 2022-HS2-COS60010-Technology Enquiry Project" />
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/pagestyle.css" />
     <title>Maths Practice Online</title>
 </head>
 <body>
