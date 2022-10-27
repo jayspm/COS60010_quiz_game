@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/dashboard.css" />
     <link rel="stylesheet" href="styles/pagestyle.css" />
     <!--<script src="scripts/script.js"></script>-->
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js" type="text/javascript"></script>
     <title>Maths Practice Online</title>
 </head>
 <body>
@@ -17,14 +18,15 @@
         </div>
         <!--this is the test-->
         <ul>
-            <li><img src="images/icon_students.png" />&nbsp; Students</li>
-            <li><img src="images/icon_students.png" />&nbsp; Student Grade 1</li>
-            <li><img src="images/icon_students.png" />&nbsp; Student Grade 2</li>
-            <li><img src="images/icon_students.png" />&nbsp; Student Grade 3</li>
-            <li><img src="images/icon_students.png" />&nbsp; Student Grade 4</li>
-            <li><img src="images/icon_students.png" />&nbsp; Student Grade 5</li>
-            <li><img src="images/icon_students.png" />&nbsp; Student Grade 6</li>
-            <li><img src="images/icon_create.png" />&nbsp; Add New Quiz</li>
+            <li><a href="dashboard.php?grade=all"><img src="images/icon_students.png" />&nbsp; Students</a></li>
+            <li><a href="dashboard.php?grade=grade1"><img src="images/icon_students.png" />&nbsp; Grade 1</a></li>
+            <li><a href="dashboard.php?grade=grade2"><img src="images/icon_students.png" />&nbsp; Grade 2</a></li>
+            <li><a href="dashboard.php?grade=grade3"><img src="images/icon_students.png" />&nbsp; Grade 3</a></li>
+            <li><a href="dashboard.php?grade=grade4"><img src="images/icon_students.png" />&nbsp; Grade 4</a></li>
+            <li><a href="dashboard.php?grade=grade5"><img src="images/icon_students.png" />&nbsp; Grade 5</a></li>
+            <li><a href="dashboard.php?grade=grade6"><img src="images/icon_students.png" />&nbsp; Grade 6</a></li>
+            <li><a href="chart.php"><img src="images/icon_overall.png" />&nbsp; Overall</a></li>
+            <li><a href=""><img src="images/icon_create.png" />&nbsp; Add New Quiz</li>
         </ul>
     </div>
     <div class="container">
@@ -59,59 +61,66 @@
                         } else {
                             $tablename = "students";
                             $query_select = "SELECT * FROM $tablename;";
+
+                            if(isset($_GET["grade"])) {
+                                $studentGrade = $_GET["grade"];
+                                
+                                switch ($studentGrade) {
+                                    case "grade1": $query_select = "SELECT * FROM $tablename WHERE student_grade = 1;";
+                                        break;
+                                    case "grade2": $query_select = "SELECT * FROM $tablename WHERE student_grade = 2;";
+                                        break;
+                                    case "grade3": $query_select = "SELECT * FROM $tablename WHERE student_grade = 3;";
+                                        break;
+                                    case "grade4": $query_select = "SELECT * FROM $tablename WHERE student_grade = 4;";
+                                        break;
+                                    case "grade5": $query_select = "SELECT * FROM $tablename WHERE student_grade = 5;";
+                                        break;
+                                    case "grade6": $query_select = "SELECT * FROM $tablename WHERE student_grade = 6;";
+                                        break;
+                                    default: $query_select = "SELECT * FROM $tablename;";
+                                }
+                            }
+
+                            //$query_select = "SELECT * FROM $tablename;";
                             $result = mysqli_query($conn, $query_select);
 
                             echo "<table>";
                             echo "<tr>
-                                    <th>Student ID</th>
-                                    <thName</th>
-                                    <th>Level</th>
-                                    <th>Scores</th>
+                                    <th class='txt_center'>Student ID</th>
+                                    <th class='txt_center'>Name</th>
+                                    <th class='txt_center'>Grade</th>
+                                    <th class='txt_center'>Level</th>
+                                    <th class='txt_center'>Scores</th>
                                 </tr>";
                             
                             while ($row = mysqli_fetch_assoc($result)){
                                 echo "<tr>";
-                                echo "<td>",$row["student_id"],"</td>";
-                                echo "<td>",$row["student_name"],"</td>";  
-                                echo "<td>",$row["student_level"],"</td>";
-                                echo "<td>",$row["student_scores"],"</td>";
+                                echo "<td class='txt_center'>",$row["student_id"],"</td>";
+                                echo "<td class='col_width'>",$row["student_name"],"</td>";  
+                                echo "<td class='txt_center'>",$row["student_grade"],"</td>";
+                                echo "<td class='txt_center'>",$row["student_level"],"</td>";
+                                echo "<td class='txt_center'>",$row["student_scores"],"</td>";
                                 echo "</tr>";
                             }
                             echo "</table>";
-                        }
+                            mysqli_free_result($result);
+		                }
 
+		                mysqli_close($conn);
                     ?>
-                    
-                    <table>
-                        <tr>
-                            <th>Student Id</th>
-                            <th>Name</th>
-                            <th>Level</th>
-                            <th>Scores</th>
-                        </tr>
-                        <tr>
-                            <td>120</td>
-                            <td>John Smith</td>
-                            <td>3</td>
-                            <td>28/30</td>
-                        </tr>
-                        <tr>
-                            <td>131</td>
-                            <td>Anna Jones</td>
-                            <td>2</td>
-                            <td>15/20</td>
-                        </tr>
-                    </table>
                 </div>
             </div>
         </div>
     </div>
+   <!-- <div id="container" style="width: 500px; height: 400px;"></div>-->
+   
     <footer>
         <hr>
         <p id="footer-center">
             &copy; <a href="https://www.swinburne.edu.au/">Swinburne University of Technology</a>.&nbsp;&nbsp;&nbsp;&nbsp;By: G13 - 2022-HS2-COS60010-Technology Enquiry Project
         </p>
     </footer>
-
+    
 </body>
 </html>
