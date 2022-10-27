@@ -51,7 +51,7 @@
 
     <!-- Return to home -->
     <div class="profileBox4">
-    <a href="dashboard.php">Home</a>
+    <a href="logout.php">Logout</a>
     </div>
 </div>
 

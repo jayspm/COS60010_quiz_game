@@ -41,8 +41,13 @@
                             while ($record = mysqli_fetch_assoc ($result) ){
                                 $_SESSION['userId'] = $record['userId'];
                                 $_SESSION['role'] = $record['role'];
+
+                                if($record['role'] == "student"){
+                                    header("Location:userprofile.php");
+                                } else {
+                                    header("Location:dashboard.php");
+                                }
                             }
-                            header("Location:dashboard.php");
                         } else {
                             echo "<p>Username/password is incorrect.<p>";
                         }
