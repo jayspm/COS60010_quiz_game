@@ -1,6 +1,8 @@
 const draggableListItems = document.querySelectorAll('.draggable-list li');
 const endMessage = document.getElementById('endMessage');
 
+
+
 // current phrase being dragged
 let selectedId;
 
@@ -9,7 +11,7 @@ let dropTargetId;
 
 // counter for correct phrases
 let matchingCounter = 0;
-
+let attemptCount = 0;
 addEventListeners();
 
 function dragStart() {
@@ -30,7 +32,8 @@ function dragOver(ev) {
 
 function dragDrop() {
   dropTargetId = this.id;
-
+  attemptCount++;
+  // document.getElementByClassName("score").textContent = attemptCount;
   if (checkForMatch(selectedId, dropTargetId)) {
     document.getElementById(selectedId).style.display = 'none';
     document.getElementById(dropTargetId).style.display = 'none';
@@ -42,6 +45,9 @@ function dragDrop() {
   }
 
   if (matchingCounter === 5) {
+    var per = 5/attemptCount*100;
+    per = per.toFixed(2);
+    document.getElementById("score").textContent =`Score: ${per}%`;
     endMessage.style.display = 'block';
   }
 
@@ -94,6 +100,7 @@ function checkForMatch2(selected, dropTarget) {
 
 function playAgain() {
   matchingCounter = 0;
+  attemptCount = 0;
   endMessage.style.display = 'none';
   draggableListItems.forEach(item => {
     document.getElementById(item.id).style.display = 'block';
@@ -109,3 +116,10 @@ function addEventListeners() {
     item.addEventListener('dragleave', dragLeave);
   })
 }
+// function init() {
+//   // var scoreButton = document.getElementById("viewScore");// get ref to the HTML element
+//   document.getElementById("score").textContent = sessionStorage.attemptCount;
+  
+//   // scoreButton.onsubmit = showscore;
+// }
+// init();

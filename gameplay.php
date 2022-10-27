@@ -137,6 +137,7 @@
   <div class="behind">
   <div id="endMessage">
     <h3>Well done!</h3>
+    <p id='score'></p>
     <table>
       <tr>
         <th>Question</th>
