@@ -228,3 +228,8 @@ th, td {
     flex-direction: column;
     align-items: center;
 }
+.txt_note {
+    text-align: right;
+    color: red;
+    font-size: small;
+}

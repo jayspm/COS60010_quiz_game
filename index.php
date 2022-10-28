@@ -35,14 +35,12 @@
                     if($connection){
                         $query = "SELECT * FROM `users` WHERE userId='$userId' and password='$password'";
 
-
                         $result = mysqli_query($connection,$query) or die(mysql_error());
                         $rows = mysqli_num_rows($result);
                         if($rows==1){
                             while ($record = mysqli_fetch_assoc ($result) ){
                                 $_SESSION['userId'] = $record['userId'];
                                 $_SESSION['role'] = $record['role'];
-                                $userId = $record['userId'];
 
                                 if($record['role'] == 'student'){
                                     $query = "SELECT * FROM students WHERE student_id='$userId'";

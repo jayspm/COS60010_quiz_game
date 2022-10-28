@@ -25,7 +25,6 @@
          $userId = $_SESSION["userId"];
          if($connection){
             $query = "SELECT * FROM students WHERE student_id='$userId'";
-            
             $result = mysqli_query($connection, $query);
 
             while ($record = mysqli_fetch_assoc ($result) ){
