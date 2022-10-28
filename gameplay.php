@@ -2,6 +2,8 @@
   session_start();
   if (!isset ($_SESSION["level"])) {
       $_SESSION["level"] = 1;
+  } else if ($_SESSION["level"]>5) {
+    $_SESSION["level"] = 1;
   }
   $level = $_SESSION["level"];
 
@@ -62,7 +64,7 @@
   //   $eq1 = "16 + 14 ÷ 2 + 3 * 5 − 11";
   //   $eq2 = "(11 − 5) * (63 − 59 + 6) ÷ 12";
   //   $eq3 = "(7 / 21) * (3 / 7)";
-  //   $eq4 = "4 + 6";g
+  //   $eq4 = "4 + 6";
   //   $eq5 = "8 + 9";
 
   //   $ans1 = "8";
@@ -104,6 +106,9 @@
 <div class="gameinfo">
   <h2>Level <?php echo $level ?></h2>
   <p>Drag the equation over the correct answer</p>
+  <p><a class="nextButton" href="levelup.php">Next Level &#x2191;</a></p>
+  <p><a class="backButton" href="leveldown.php">Go Back &#x2191;</a></p>
+
 </div> 
 
   <main class="container">
@@ -132,6 +137,13 @@
   <div id="endMessage">
     <h3>Well done!</h3>
     <p id="score"></p>
+    <!--?php 
+      $score1 = $_SESSION['score'] ;
+      echo "<p> _SESSION ".$score1 ."</p>";
+      $score2 = $_SERVER['score'] ;
+      echo "<p> _SERVER ".$score2 ."</p>";
+
+    ?-->
     <table>
       <tr>
         <th>Question</th>
@@ -160,18 +172,32 @@
     </table>
 
     <button onclick="playAgain()">Play Again</button>
-    <p><a href="levelup.php">Next Level &#x2191;</a></p>
-    <p><a href="leveldown.php">Go Back &#x2191;</a></p>
+    <p class="nextButton"><a href="levelup.php">Next Level &#x2191;</a></p>
+    <p class="backButton"><a href="leveldown.php">Go Back &#x2191;</a></p>
     <form  method="post">
+        <input type="hidden"  name="levelScore" id="levelScore"/>
         <input type="text" name="gameLevel" value="<?php echo $level ?>" >
         <input type="submit" name="nextLevel" value="Next Level">
     </form>
     <?php 
+      session_start();
       if (isset($_POST['nextLevel'])) {
         $getLevel = $_POST['gameLevel']; 
         // $level =  $_SESSION["level"];
         // $level++;
         $_SESSION["level"]++;
+        $per = $_POST["levelScore"];
+        require_once('settings.php');	
+        $connection = @mysqli_connect($host,$user,$pwd,$sql_db);
+        
+        $userId = $_SESSION['userId'];
+        if($connection){
+          $updateQuery = "UPDATE students SET Lv1_score=$per WHERE student_id=$userId;";
+
+          $result = mysqli_query($connection, $updateQuery);
+        }
+      
+
         header("location:gameplay.php");
       }
       if (isset($_SESSION["score"])) {
@@ -179,6 +205,19 @@
       }
     ?>
     <input type="hidden" id="levelScore" name="levelScore" />
+    
+
+    <!-- <form method="post">
+        <input type="text" id="score" name="viewScore">
+        <input type="text" id="score" name="viewScore">
+        <input type="submit" name="viewScore" value="View Score">
+    </form> -->
+    <!--?php
+        if (isset($_POST['viewScore'])) {
+          $getLevel = $_POST['score']; 
+          header("location:userprofile.php");
+        }      
+    ?-->
 
   </div>
 </div>
