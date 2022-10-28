@@ -111,7 +111,7 @@
                     <button type="submit"><img src="images/icon_search.png" /></button>
                 </div>
                 <div class="user">
-                    <a href="#" class="btn">Log out</a>
+                    <a href="logout.php" class="btn">Log out</a>
                     <img src="images/icon_notification.png" />
                     <div class="img-case">
                         <img src="images/icon_user.png" />
@@ -139,7 +139,7 @@
                     <br />
                     <hr />
                     <div class="title">
-                        <h2>Highest and lowest level for eash grade</h2>
+                        <h2>Highest and lowest level for each grade</h2>
                     </div>
                     <div id="highestandlowestlv" style="width: 600px; height: 500px;"></div>
                     </div>
