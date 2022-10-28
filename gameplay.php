@@ -106,9 +106,6 @@
 <div class="gameinfo">
   <h2>Level <?php echo $level ?></h2>
   <p>Drag the equation over the correct answer</p>
-  <!-- <p><a class="nextButton" href="levelup.php">Next Level &#x2191;</a></p>
-  <p><a class="backButton" href="leveldown.php">Go Back &#x2191;</a></p> -->
-
 </div> 
 
   <main class="container">
@@ -172,14 +169,10 @@
     </table>
 
     <button onclick="playAgain()">Play Again</button>
-    <!-- <p class="nextButton"><a href="levelup.php">Next Level &#x2191;</a></p>
-    <p class="backButton"><a href="leveldown.php">Go Back &#x2191;</a></p> -->
     <form  method="post">
         <input type="text"  name="levelScore" id="levelScore" readonly>
-        <!-- <p class="nextButton"><a href="levelup.php">Next Level &#x2191;</a></p>
-        <p class="backButton"><a href="leveldown.php">Go Back &#x2191;</a></p> -->
         <input type="text" name="gameLevel" value="<?php echo $level ?>" readonly>
-        <input type="submit" name="nextLevel" value="Next Level" />
+        <input class="nextLevel" type="submit" name="nextLevel" value="Next Level" />
     </form>
     <?php 
       // session_start();
@@ -201,20 +194,7 @@
       }
     ?>
     <input type="hidden" id="levelScore" name="levelScore" />
-    
-
-    <!-- <form method="post">
-        <input type="text" id="score" name="viewScore">
-        <input type="text" id="score" name="viewScore">
-        <input type="submit" name="viewScore" value="View Score">
-    </form> -->
-    <!--?php
-        if (isset($_POST['viewScore'])) {
-          $getLevel = $_POST['score']; 
-          header("location:userprofile.php");
-        }      
-    ?-->
-
+   
   </div>
 </div>
 
