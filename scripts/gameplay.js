@@ -48,6 +48,7 @@ function dragDrop() {
     var per = 5/attemptCount*100;
     per = per.toFixed(2);
     document.getElementById("score").textContent =`Score: ${per}%`;
+    document.getElementById("levelScore").value =per;
     endMessage.style.display = 'block';
   }
 
