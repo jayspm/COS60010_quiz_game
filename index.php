@@ -49,7 +49,7 @@
 
                                     $resultnew = mysqli_query($connection,$query);
                                     while ($record = mysqli_fetch_assoc ($resultnew) ){
-                                        $_SESSION["level"] = $record["level"];
+                                        $_SESSION["level"] = $record["current_level"];
                                     }
                                     header("Location:userprofile.php");
                                 } else {
