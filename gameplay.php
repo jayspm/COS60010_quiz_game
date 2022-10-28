@@ -3,7 +3,7 @@
   if (!isset ($_SESSION["level"])) {
       $_SESSION["level"] = 1;
   } else if ($_SESSION["level"]>5) {
-    $_SESSION["level"] = 1;
+    header('location:levelcompleted.php');
   }
   $level = $_SESSION["level"];
 
@@ -184,10 +184,9 @@
     <?php 
       // session_start();
       if (isset($_POST['nextLevel'])) {
-        $level = $_SESSION["level"];
-        $currentLevel = $level-1;
-        $level++;
-        $_SESSION["level"] = $level;
+        $currentLevel = $_SESSION["level"];;
+        $levelUp = $currentLevel + 1;
+        $_SESSION["level"] = $levelUp;
         $per = $_POST["levelScore"];
         require_once('settings.php');	
         $connection = @mysqli_connect($host,$user,$pwd,$sql_db);
@@ -198,7 +197,7 @@
 
           $result = mysqli_query($connection, $updateQuery);
         }
-        // header("location:gameplay.php");
+        header("location:gameplay.php");
       }
     ?>
     <input type="hidden" id="levelScore" name="levelScore" />
