@@ -124,20 +124,14 @@
          foreach($noralArray as $val){
           echo "<li id='s$val' draggable='true'>${'ans' . $val}</li>";
          }
-
         ?>
-        <!-- <li id="s2" draggable="true"><?php echo $ans2 ?></li>
-        <li id="s3" draggable="true"><?php echo $ans3 ?></li>
-        <li id="s4" draggable="true"><?php echo $ans4 ?></li>
-        <li id="s5" draggable="true"><?php echo $ans5 ?></li>
-        <li id="s1" draggable="true"><?php echo $ans1 ?></li> -->
       </ul>
     </div>
   </main>
   <div class="behind">
   <div id="endMessage">
     <h3>Well done!</h3>
-    <p id='score'></p>
+    <p id="score"></p>
     <table>
       <tr>
         <th>Question</th>
@@ -180,7 +174,11 @@
         $_SESSION["level"]++;
         header("location:gameplay.php");
       }
+      if (isset($_SESSION["score"])) {
+        header("location:userprofile.php");
+      }
     ?>
+    <input type="hidden" id="levelScore" name="levelScore" />
 
   </div>
 </div>
