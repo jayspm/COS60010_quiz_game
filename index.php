@@ -51,9 +51,6 @@
                                     while ($record = mysqli_fetch_assoc ($resultnew) ){
                                         $_SESSION["level"] = $record["level"];
                                     }
-                                }
-
-                                if($record['role'] == "student"){
                                     header("Location:userprofile.php");
                                 } else {
                                     header("Location:dashboard.php");
