@@ -73,7 +73,7 @@ th, td {
     align-items: center;
 }
 
-.side-menu li:hover {
+.side-menu a:hover {
     background: white;
     color: #f05462;
 }
