@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +11,26 @@
     <?php 
         session_start();
         echo "<h1>Congratulations! You have completed all levels!</h1>";
+        $userId = $_SESSION['userId'];
+        require_once('settings.php');	
+        $connection = @mysqli_connect($host,$user,$pwd,$sql_db);
+        $overall_score = 0;
+        if($connection){
+            $query = "SELECT * FROM students WHERE student_id='$userId'";
+
+            $result = mysqli_query($connection,$query);
+
+            while ($record = mysqli_fetch_assoc ($result) ){
+              $overall_score = ($record["lv1_score"] + $record["lv2_score"] + $record["lv3_score"] + $record["lv4_score"] + $record["lv5_score"])/5;
+            }
+          
+          echo "Your overall score is:". $overall_score;
+
+          $updateQuery = "UPDATE students SET total_score=$overall_score WHERE student_id=$userId;";
+
+          $result = mysqli_query($connection, $updateQuery);
+
+        }
     ?>
     <form  method="post">
         <input type="submit" name="PlayAgain" value="Play Again" >
