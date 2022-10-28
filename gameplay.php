@@ -3,6 +3,7 @@
   if (!isset ($_SESSION["level"])) {
       $_SESSION["level"] = 1;
   } else if ($_SESSION["level"]>5) {
+    $_SESSION["level"] = 1;
     header('location:levelcompleted.php');
   }
   $level = $_SESSION["level"];
@@ -133,7 +134,8 @@
   <div class="behind">
   <div id="endMessage">
     <h3>Well done!</h3>
-    <p id="score"></p>
+
+    <p id='score'></p>
     <!--?php 
       $score1 = $_SESSION['score'] ;
       echo "<p> _SESSION ".$score1 ."</p>";
@@ -169,9 +171,14 @@
     </table>
 
     <button onclick="playAgain()">Play Again</button>
+
     <form  method="post">
+      <label>Score: </label>
         <input type="text"  name="levelScore" id="levelScore" readonly>
+        <br>
+        <label>Level: </label>
         <input type="text" name="gameLevel" value="<?php echo $level ?>" readonly>
+        <br>
         <input class="nextLevel" type="submit" name="nextLevel" value="Next Level" />
     </form>
     <?php 
@@ -194,7 +201,8 @@
       }
     ?>
     <input type="hidden" id="levelScore" name="levelScore" />
-   
+    
+
   </div>
 </div>
 
