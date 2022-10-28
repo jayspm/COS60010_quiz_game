@@ -3,7 +3,7 @@
   if (!isset ($_SESSION["level"])) {
       $_SESSION["level"] = 1;
   } else if ($_SESSION["level"]>5) {
-    $_SESSION["level"] = 1;
+    header('location:levelcompleted.php');
   }
   $level = $_SESSION["level"];
 
@@ -106,8 +106,8 @@
 <div class="gameinfo">
   <h2>Level <?php echo $level ?></h2>
   <p>Drag the equation over the correct answer</p>
-  <p><a class="nextButton" href="levelup.php">Next Level &#x2191;</a></p>
-  <p><a class="backButton" href="leveldown.php">Go Back &#x2191;</a></p>
+  <!-- <p><a class="nextButton" href="levelup.php">Next Level &#x2191;</a></p>
+  <p><a class="backButton" href="leveldown.php">Go Back &#x2191;</a></p> -->
 
 </div> 
 
@@ -129,21 +129,14 @@
          foreach($noralArray as $val){
           echo "<li id='s$val' draggable='true'>${'ans' . $val}</li>";
          }
-
         ?>
-        <!-- <li id="s2" draggable="true"><?php echo $ans2 ?></li>
-        <li id="s3" draggable="true"><?php echo $ans3 ?></li>
-        <li id="s4" draggable="true"><?php echo $ans4 ?></li>
-        <li id="s5" draggable="true"><?php echo $ans5 ?></li>
-        <li id="s1" draggable="true"><?php echo $ans1 ?></li> -->
       </ul>
     </div>
   </main>
   <div class="behind">
   <div id="endMessage">
     <h3>Well done!</h3>
-
-    <p id='score'></p>
+    <p id="score"></p>
     <!--?php 
       $score1 = $_SESSION['score'] ;
       echo "<p> _SESSION ".$score1 ."</p>";
@@ -179,35 +172,35 @@
     </table>
 
     <button onclick="playAgain()">Play Again</button>
-    <p class="nextButton"><a href="levelup.php">Next Level &#x2191;</a></p>
-    <p class="backButton"><a href="leveldown.php">Go Back &#x2191;</a></p>
+    <!-- <p class="nextButton"><a href="levelup.php">Next Level &#x2191;</a></p>
+    <p class="backButton"><a href="leveldown.php">Go Back &#x2191;</a></p> -->
     <form  method="post">
-        <input type="hidden"  name="levelScore" id="levelScore"/>
-        <input type="text" name="gameLevel" value="<?php echo $level ?>" >
-        <input type="submit" name="nextLevel" value="Next Level">
+        <input type="text"  name="levelScore" id="levelScore" readonly>
+        <!-- <p class="nextButton"><a href="levelup.php">Next Level &#x2191;</a></p>
+        <p class="backButton"><a href="leveldown.php">Go Back &#x2191;</a></p> -->
+        <input type="text" name="gameLevel" value="<?php echo $level ?>" readonly>
+        <input type="submit" name="nextLevel" value="Next Level" />
     </form>
     <?php 
-      session_start();
+      // session_start();
       if (isset($_POST['nextLevel'])) {
-        $getLevel = $_POST['gameLevel']; 
-        // $level =  $_SESSION["level"];
-        // $level++;
-        $_SESSION["level"]++;
+        $currentLevel = $_SESSION["level"];;
+        $levelUp = $currentLevel + 1;
+        $_SESSION["level"] = $levelUp;
         $per = $_POST["levelScore"];
         require_once('settings.php');	
         $connection = @mysqli_connect($host,$user,$pwd,$sql_db);
-        
         $userId = $_SESSION['userId'];
+        
         if($connection){
-          $updateQuery = "UPDATE students SET Lv1_score=$per WHERE student_id=$userId;";
+          $updateQuery = "UPDATE students SET Lv".$currentLevel."_score=$per, current_level=$levelUp WHERE student_id=$userId;";
 
           $result = mysqli_query($connection, $updateQuery);
         }
-      
-
         header("location:gameplay.php");
       }
     ?>
+    <input type="hidden" id="levelScore" name="levelScore" />
     
 
     <!-- <form method="post">
