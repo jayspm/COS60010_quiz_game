@@ -193,7 +193,7 @@
         $userId = $_SESSION['userId'];
         
         if($connection){
-          $updateQuery = "UPDATE students SET Lv".$currentLevel."_score=$per WHERE student_id=$userId;";
+          $updateQuery = "UPDATE students SET Lv".$currentLevel."_score=$per, current_level=$levelUp WHERE student_id=$userId;";
 
           $result = mysqli_query($connection, $updateQuery);
         }
