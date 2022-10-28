@@ -106,8 +106,8 @@
 <div class="gameinfo">
   <h2>Level <?php echo $level ?></h2>
   <p>Drag the equation over the correct answer</p>
-  <p><a class="nextButton" href="levelup.php">Next Level &#x2191;</a></p>
-  <p><a class="backButton" href="leveldown.php">Go Back &#x2191;</a></p>
+  <!-- <p><a class="nextButton" href="levelup.php">Next Level &#x2191;</a></p>
+  <p><a class="backButton" href="leveldown.php">Go Back &#x2191;</a></p> -->
 
 </div> 
 
@@ -172,27 +172,29 @@
     </table>
 
     <button onclick="playAgain()">Play Again</button>
-    <form  method="post" action="gameplay.ph">
-        <input type="hidden"  name="levelScore" id="levelScore"/>
-        <input type="submit" name="nextLevel" value="Next Level">
+    <!-- <p class="nextButton"><a href="levelup.php">Next Level &#x2191;</a></p>
+    <p class="backButton"><a href="leveldown.php">Go Back &#x2191;</a></p> -->
+    <form  method="post">
+        <input type="text"  name="levelScore" id="levelScore" readonly>
+        <!-- <p class="nextButton"><a href="levelup.php">Next Level &#x2191;</a></p>
+        <p class="backButton"><a href="leveldown.php">Go Back &#x2191;</a></p> -->
+        <input type="text" name="gameLevel" value="<?php echo $level ?>" readonly>
+        <input type="submit" name="nextLevel" value="Next Level" />
     </form>
     <?php 
+      // session_start();
       if (isset($_POST['nextLevel'])) {
-        $getLevel = $_POST['gameLevel']; 
-
-        $_SESSION["level"]++;
+        $level = $_SESSION["level"];
+        $currentLevel = $level-1;
+        $level++;
+        $_SESSION["level"] = $level;
         $per = $_POST["levelScore"];
         require_once('settings.php');	
         $connection = @mysqli_connect($host,$user,$pwd,$sql_db);
         $userId = $_SESSION['userId'];
         
         if($connection){
-          $query = "SELECT * FROM students";
-          $result = mysqli_query($connection, $updateQuery);
-          while ($record = mysqli_fetch_assoc ($result) ){
-            echo $record['userId'];
-          }
-          $updateQuery = "UPDATE students SET Lv1_score=$per WHERE student_id=$userId;";
+          $updateQuery = "UPDATE students SET Lv".$currentLevel."_score=$per WHERE student_id=$userId;";
 
           $result = mysqli_query($connection, $updateQuery);
         }
